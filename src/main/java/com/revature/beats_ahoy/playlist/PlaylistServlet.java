@@ -23,7 +23,6 @@ public class PlaylistServlet  implements Authable {
         this.playlistServices = playlistServices;
         this.usersServices=usersServices;
     }
-    @CrossOrigin(value = "http://localhost:3000", allowCredentials = "true")
     @PostMapping("/addPlaylist")
     public ResponseEntity<Playlist> CreatePlaylist(@RequestBody PlaylistInit playlist){
 
