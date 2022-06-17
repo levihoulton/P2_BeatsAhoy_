@@ -54,6 +54,6 @@ public class PlaylistServlet  implements Authable {
 
     @GetMapping("/playlists")
     public ResponseEntity<List> findAllPlaylists(){
-        return new ResponseEntity<>(playlistServices.readAll(), HttpStatus.I_AM_A_TEAPOT);
+        return new ResponseEntity<>(playlistServices.readAll(), HttpStatus.OK);
     }
 }
