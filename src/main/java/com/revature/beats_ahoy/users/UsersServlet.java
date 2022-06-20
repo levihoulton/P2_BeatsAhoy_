@@ -25,6 +25,11 @@ public class UsersServlet implements Authable {
         Users newUser = usersServices. create(user);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
+    @PutMapping("/register")
+    public ResponseEntity<Users> updateUser(@RequestBody Users user){
+        Users newUser = usersServices.update(user);
+        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
+    }
     @GetMapping("/users")
     public ResponseEntity<List> findAllUsers(){
         return new ResponseEntity<>(usersServices.readAll(), HttpStatus.I_AM_A_TEAPOT);
