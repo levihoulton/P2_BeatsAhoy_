@@ -30,9 +30,15 @@ public class UsersServlet implements Authable {
         Users newUser = usersServices.update(user);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
+    @GetMapping("/delete/{username}")
+    public ResponseEntity<Boolean> deleteUserById(@PathVariable String username){
+        boolean deletedUser = usersServices.delete(username);
+        return new ResponseEntity<>(deletedUser, HttpStatus.OK);
+    }
+
     @GetMapping("/users")
     public ResponseEntity<List> findAllUsers(){
-        return new ResponseEntity<>(usersServices.readAll(), HttpStatus.I_AM_A_TEAPOT);
+        return new ResponseEntity<>(usersServices.readAll(), HttpStatus.OK);
     }
 
     @GetMapping("/userEx")
